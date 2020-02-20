@@ -163,6 +163,30 @@ public class Controller {
         inputField.setText( inputField.getText() + "×");
     }
 
+    @FXML
+    void memoryplus () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memoryminus () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memoryread () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memoryclear () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
     private void reset(){
         if(isDisplayingAns){
             inputField.clear();
