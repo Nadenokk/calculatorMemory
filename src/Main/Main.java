@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    public float m1 = 0;
 
     @Override
     public void start(Stage primaryStage) throws Exception{

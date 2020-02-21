@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="436.0" style="-fx-background-color: rgb(111,111,111);" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="436.0" style="-fx-background-color: rgb(111,111,111);" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
    <children>
       <Button layoutX="94.0" layoutY="221.0" mnemonicParsing="false" onAction="#pressing8Btn" prefHeight="51.0" prefWidth="53.0" text="8" />
       <Button layoutX="29.0" layoutY="221.0" mnemonicParsing="false" onAction="#pressing7Btn" prefHeight="51.0" prefWidth="53.0" text="7" />
@@ -41,17 +39,28 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="221.0" layoutY="221.0" mnemonicParsing="false" onAction="#memoryplus" prefHeight="51.0" prefWidth="53.0" text="M+" />
-      <Button layoutX="221.0" layoutY="282.0" mnemonicParsing="false" onAction="#memoryminus" prefHeight="51.0" prefWidth="53.0" text="M-" />
-      <Button layoutX="221.0" layoutY="344.0" mnemonicParsing="false" onAction="#memoryread" prefHeight="51.0" prefWidth="53.0" text="MR" />
-      <Button layoutX="221.0" layoutY="403.0" mnemonicParsing="false" onAction="#memoryclear" prefHeight="51.0" prefWidth="53.0" text="MC" />
-      <Button layoutX="284.0" layoutY="221.0" mnemonicParsing="false" onAction="#memoryplus" prefHeight="51.0" prefWidth="53.0" text="M+" />
-      <Button layoutX="284.0" layoutY="282.0" mnemonicParsing="false" onAction="#memoryminus" prefHeight="51.0" prefWidth="53.0" text="M-" />
-      <Button layoutX="284.0" layoutY="344.0" mnemonicParsing="false" onAction="#memoryread" prefHeight="51.0" prefWidth="53.0" text="MR" />
-      <Button layoutX="284.0" layoutY="403.0" mnemonicParsing="false" onAction="#memoryclear" prefHeight="51.0" prefWidth="53.0" text="MC" />
-      <Button layoutX="347.0" layoutY="221.0" mnemonicParsing="false" onAction="#memoryplus" prefHeight="51.0" prefWidth="53.0" text="M+" />
-      <Button layoutX="347.0" layoutY="282.0" mnemonicParsing="false" onAction="#memoryminus" prefHeight="51.0" prefWidth="53.0" text="M-" />
-      <Button layoutX="347.0" layoutY="344.0" mnemonicParsing="false" onAction="#memoryread" prefHeight="51.0" prefWidth="53.0" text="MR" />
-      <Button layoutX="347.0" layoutY="403.0" mnemonicParsing="false" onAction="#memoryclear" prefHeight="51.0" prefWidth="53.0" text="MC" />
+      <Button layoutX="221.0" layoutY="221.0" mnemonicParsing="false" onAction="#memory1plus" prefHeight="51.0" prefWidth="53.0" text="M+" />
+      <Button layoutX="221.0" layoutY="282.0" mnemonicParsing="false" onAction="#memory1minus" prefHeight="51.0" prefWidth="53.0" text="M-" />
+      <Button layoutX="221.0" layoutY="344.0" mnemonicParsing="false" onAction="#memory1read" prefHeight="51.0" prefWidth="53.0" text="MR" />
+      <Button layoutX="221.0" layoutY="403.0" mnemonicParsing="false" onAction="#memory1clear" prefHeight="51.0" prefWidth="53.0" text="MC" />
+      <Button layoutX="284.0" layoutY="221.0" mnemonicParsing="false" onAction="#memory2plus" prefHeight="51.0" prefWidth="53.0" text="M+" />
+      <Button layoutX="284.0" layoutY="282.0" mnemonicParsing="false" onAction="#memory2minus" prefHeight="51.0" prefWidth="53.0" text="M-" />
+      <Button layoutX="284.0" layoutY="344.0" mnemonicParsing="false" onAction="#memory2read" prefHeight="51.0" prefWidth="53.0" text="MR" />
+      <Button layoutX="284.0" layoutY="403.0" mnemonicParsing="false" onAction="#memory2clear" prefHeight="51.0" prefWidth="53.0" text="MC" />
+      <Button layoutX="347.0" layoutY="221.0" mnemonicParsing="false" onAction="#memory3plus" prefHeight="51.0" prefWidth="53.0" text="M+" />
+      <Button layoutX="347.0" layoutY="282.0" mnemonicParsing="false" onAction="#memory3minus" prefHeight="51.0" prefWidth="53.0" text="M-" />
+      <Button layoutX="347.0" layoutY="344.0" mnemonicParsing="false" onAction="#memory3read" prefHeight="51.0" prefWidth="53.0" text="MR" />
+      <Button layoutX="347.0" layoutY="403.0" mnemonicParsing="false" onAction="#memory3clear" prefHeight="51.0" prefWidth="53.0" text="MC" />
+      <MenuBar layoutX="22.0" layoutY="2.0" prefHeight="10.0" prefWidth="67.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="About">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Made by Nadia" />
+               <MenuItem mnemonicParsing="false" text="Test produkt" />
+               <MenuItem mnemonicParsing="false" text="Making dad's help" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </Pane>

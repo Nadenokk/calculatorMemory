@@ -164,25 +164,73 @@ public class Controller {
     }
 
     @FXML
-    void memoryplus () {
+    void memory1plus () {
         reset();
         inputField.setText( inputField.getText() + "×");
     }
 
     @FXML
-    void memoryminus () {
+    void memory1minus () {
         reset();
         inputField.setText( inputField.getText() + "×");
     }
 
     @FXML
-    void memoryread () {
+    void memory1read () {
         reset();
         inputField.setText( inputField.getText() + "×");
     }
 
     @FXML
-    void memoryclear () {
+    void memory1clear () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memory2plus () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memory2minus () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memory2read () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memory2clear () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memory3plus () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memory3minus () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memory3read () {
+        reset();
+        inputField.setText( inputField.getText() + "×");
+    }
+
+    @FXML
+    void memory3clear () {
         reset();
         inputField.setText( inputField.getText() + "×");
     }
