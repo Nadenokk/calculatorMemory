@@ -12,8 +12,6 @@ import java.util.List;
 public class ArithmeticSolver {
     private String equation;
 
-    //using double is cannot do correct calculation...
-    //why? please refer to https://dzone.com/articles/never-use-float-and-double-for-monetary-calculatio
     private BigDecimal answer;
 
     private ArrayList<BigDecimal> numbers = new ArrayList<>();
@@ -26,7 +24,6 @@ public class ArithmeticSolver {
 
     private void solve() throws MathException{
         System.out.println("at the beginning "+ equation);
-    //    simplifyPlusAndMinusSign();
 
         extractEquationToNumbersAndOperators();
         System.out.println("numbers: " + numbers.toString());

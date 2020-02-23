@@ -16,6 +16,9 @@ public enum Operator {
     }
 
     public static Operator getOperator(char c){
+        /*
+        * Читаем знак
+         */
         switch (c){
             case '+': return add;
             case '-': return minus;
@@ -26,6 +29,9 @@ public enum Operator {
     }
 
     public BigDecimal calculate(BigDecimal a, BigDecimal b) throws DivideByZeroException {
+        /*
+        * Подбор знака и операции
+         */
         switch (this){
             case add: return a.add(b);
             case minus: return  a.subtract(b);
@@ -36,6 +42,9 @@ public enum Operator {
     }
 
     private BigDecimal division(BigDecimal a, BigDecimal b) throws DivideByZeroException {
+        /*
+        * Проверка деления на 0
+         */
         if(b.equals(new BigDecimal(0))){
             throw new DivideByZeroException();
         }
@@ -44,6 +53,9 @@ public enum Operator {
             return a.divide(b);
         }
         catch (ArithmeticException e){
+            /*
+            * Минимум 8 знаков после запятой
+             */
             return a.divide(b,8, RoundingMode.HALF_UP);
         }
     }

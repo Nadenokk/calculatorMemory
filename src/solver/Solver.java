@@ -27,7 +27,7 @@ public class Solver {
     }
 
     /**
-     * convert a(b) to a×(b) or (a)(b) to (a)×(b)
+     * 
      */
     private void addingTimesSign(){
         for (int i = 1; i < equation.length(); i++) {

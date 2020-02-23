@@ -11,11 +11,14 @@ import javafx.stage.Stage;
 public class Main extends Application {
     public float m1 = 0;
 
+    /*
+    *Запуск окна и подготовка к работе калькулятора
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/calculator.fxml"));
         Parent root = loader.load();
-        primaryStage.setTitle("Calculator For Nadya");
+        primaryStage.setTitle("Я калькулятор, я не люблю когда меня ломают");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         Controller controller = loader.getController();

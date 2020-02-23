@@ -6,7 +6,10 @@ import javafx.scene.control.TextField;
 import solver.Solver;
 
 public class Controller {
-
+/**
+* Описываю переменные ввода и вывода текста
+* булевые переменные на нажатие "=" и наличие
+ */
     @FXML
     private TextField outputField;
 
@@ -35,7 +38,11 @@ public class Controller {
     TextField getOutputField() {
         return outputField;
     }
-
+    /*
+    *Выполнение математческих операций
+    * Нажатие на кнопки цифр
+    * Операции с 3 перменными из памяти
+     */
     @FXML
     void add() {
         if (!isEqualLabel) {
@@ -52,14 +59,6 @@ public class Controller {
         }
     }
 
-    @FXML
-    void backspace() {
-        reset();
-        int length = outputField.getLength();
-        if(length != 0) {
-            outputField.setText(outputField.getText(0, length-1));
-        }
-    }
     @FXML
     void plusminus() {
         reset();
