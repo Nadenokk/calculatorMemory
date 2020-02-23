@@ -1,4 +1,4 @@
-package solver.arithmetic;
+package solver;
 
 import exception.DivideByZeroException;
 

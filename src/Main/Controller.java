@@ -8,236 +8,304 @@ import solver.Solver;
 public class Controller {
 
     @FXML
+    private TextField outputField;
+
+    @FXML
     private TextField inputField;
 
     @FXML
-    private TextField outputField;
+    private TextField z;
 
     @FXML
     private Label equalLabel;
 
-
-    private boolean isDisplayingAns = false;
-
-    TextField getInputField() {
-        return inputField;
-    }
+    @FXML
+    private TextField memory1;
 
     @FXML
-    void ansBtn() {
-        reset();
-        if(!outputField.getText().equals("")){
-            inputField.setText( inputField.getText() + outputField.getText());
-        }
+    private TextField memory2;
+
+    @FXML
+    private TextField memory3;
+
+
+    private boolean isDisplayingAns = false;
+    private boolean isEqualLabel = false;
+
+    TextField getOutputField() {
+        return outputField;
     }
 
     @FXML
     void add() {
-        reset();
-        inputField.setText( inputField.getText() + "+");
+        if (!isEqualLabel) {
+            reset();
+            inputField.setText(outputField.getText() + "+");
+            outputField.clear();
+            isEqualLabel=true;
+        } else {
+            reset();
+            equal();
+            inputField.setText(outputField.getText() + "+");
+            outputField.clear();
+            isEqualLabel=true;
+        }
     }
 
     @FXML
     void backspace() {
         reset();
-        int length = inputField.getLength();
+        int length = outputField.getLength();
         if(length != 0) {
-            inputField.setText(inputField.getText(0, length-1));
+            outputField.setText(outputField.getText(0, length-1));
         }
     }
-
+    @FXML
+    void plusminus() {
+        reset();
+        if (outputField.getText(0,1).contains("-")){
+            outputField.deleteText(0,1);
+        } else {
+            outputField.setText("-" + outputField.getText());
+        }
+    }
     @FXML
     void clear() {
-        inputField.clear();
         outputField.clear();
+        inputField.clear();
         equalLabel.setVisible(false);
     }
 
     @FXML
-    void closeParentheses() {
-        reset();
-        inputField.setText( inputField.getText() + ")");
-    }
-
-    @FXML
     void divide() {
-        reset();
-        inputField.setText( inputField.getText() + "÷");
+        if (!isEqualLabel) {
+            reset();
+            inputField.setText(outputField.getText() + "÷");
+            outputField.clear();
+            isEqualLabel=true;
+        } else {
+            reset();
+            equal();
+            inputField.setText(outputField.getText() + "÷");
+            outputField.clear();
+            isEqualLabel=true;
+        }
     }
 
     @FXML
     void dot() {
         reset();
-        inputField.setText( inputField.getText() + ".");
+        outputField.setText( outputField.getText() + ".");
     }
 
     @FXML
     void equal() {
+        inputField.setText(inputField.getText() +outputField.getText());
         Solver solver = new Solver(inputField.getText());
         outputField.setText(solver.getAnswer());
-        isDisplayingAns = true;
+        inputField.clear();
+        isDisplayingAns = false;
+        isEqualLabel=false;
         equalLabel.setVisible(true);
     }
 
     @FXML
     void minus() {
-        reset();
-        inputField.setText( inputField.getText() + "-");
-    }
-
-    @FXML
-    void openParentheses() {
-        reset();
-        inputField.setText( inputField.getText() + "(");
-    }
-
-    @FXML
-    void percentage() {
-        reset();
-        inputField.setText( inputField.getText() + "%");
+        if (!isEqualLabel) {
+            reset();
+            inputField.setText(outputField.getText() + "-");
+            outputField.clear();
+            isEqualLabel=true;
+        } else {
+            reset();
+            equal();
+            inputField.setText(outputField.getText() + "-");
+            outputField.clear();
+            isEqualLabel=true;
+        }
     }
 
     @FXML
     void pressing1Btn() {
         reset();
-        inputField.setText( inputField.getText() + "1");
+        outputField.setText( outputField.getText() + "1");
     }
 
     @FXML
     void pressing2Btn() {
         reset();
-        inputField.setText( inputField.getText() + "2");
+        outputField.setText( outputField.getText() + "2");
     }
 
     @FXML
     void pressing3Btn() {
         reset();
-        inputField.setText( inputField.getText() + "3");
+        outputField.setText( outputField.getText() + "3");
     }
 
     @FXML
     void pressing4Btn() {
         reset();
-        inputField.setText( inputField.getText() + "4");
+        outputField.setText( outputField.getText() + "4");
     }
 
     @FXML
     void pressing5Btn() {
         reset();
-        inputField.setText( inputField.getText() + "5");
+        outputField.setText( outputField.getText() + "5");
     }
 
     @FXML
     void pressing6Btn() {
         reset();
-        inputField.setText( inputField.getText() + "6");
+        outputField.setText( outputField.getText() + "6");
     }
 
     @FXML
     void pressing7Btn() {
         reset();
-        inputField.setText( inputField.getText() + "7");
+        outputField.setText( outputField.getText() + "7");
     }
 
     @FXML
     void pressing8Btn() {
         reset();
-        inputField.setText( inputField.getText() + "8");
+        outputField.setText( outputField.getText() + "8");
     }
 
     @FXML
     void pressing9Btn() {
         reset();
-        inputField.setText( inputField.getText() + "9");
+        outputField.setText( outputField.getText() + "9");
     }
 
     @FXML
     void pressing0Btn() {
         reset();
-        inputField.setText( inputField.getText() + "0");
+        outputField.setText( outputField.getText() + "0");
     }
 
     @FXML
     void times() {
-        reset();
-        inputField.setText( inputField.getText() + "×");
+        if (!isEqualLabel) {
+            reset();
+            inputField.setText(outputField.getText() + "×");
+            outputField.clear();
+            isEqualLabel=true;
+        } else {
+            reset();
+            equal();
+            inputField.setText(outputField.getText() + "×");
+            outputField.clear();
+            isEqualLabel=true;
+        }
     }
 
     @FXML
     void memory1plus () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        String s = outputField.getText();
+        if (s.length() >0 && s.matches("^-?[\\d.]+$" ) ) {
+            memory1.setText(memory1.getText() + "+" + s);
+            Solver solver = new Solver(memory1.getText());
+            memory1.setText(solver.getAnswer());
+        }
     }
 
     @FXML
     void memory1minus () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        String s = outputField.getText();
+        if (s.length() >0 && s.matches("^-?[\\d.]+$" )) {
+            memory1.setText(memory1.getText() + "-" + outputField.getText());
+            Solver solver = new Solver(memory1.getText());
+            memory1.setText(solver.getAnswer());
+        }
     }
 
     @FXML
     void memory1read () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        outputField.setText(memory1.getText());
     }
 
     @FXML
     void memory1clear () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        memory1.setText("0");
     }
 
     @FXML
     void memory2plus () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        String s = outputField.getText();
+        if (s.length() >0 && s.matches("^-?[\\d.]+$" ) ) {
+            memory2.setText(memory2.getText() + "+" + s);
+            Solver solver = new Solver(memory2.getText());
+            memory2.setText(solver.getAnswer());
+        }
     }
 
     @FXML
     void memory2minus () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        String s = outputField.getText();
+        if (s.length() >0 && s.matches("^-?[\\d.]+$" )) {
+            memory2.setText(memory2.getText() + "-" + outputField.getText());
+            Solver solver = new Solver(memory2.getText());
+            memory2.setText(solver.getAnswer());
+        }
     }
 
     @FXML
     void memory2read () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        outputField.setText(memory2.getText());
     }
 
     @FXML
     void memory2clear () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        memory2.setText("0");
     }
 
     @FXML
     void memory3plus () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        String s = outputField.getText();
+        if (s.length() >0 && s.matches("^-?[\\d.]+$" ) ) {
+            memory3.setText(memory3.getText() + "+" + s);
+            Solver solver = new Solver(memory3.getText());
+            memory3.setText(solver.getAnswer());
+        }
     }
 
     @FXML
     void memory3minus () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        String s = outputField.getText();
+        if (s.length() >0 && s.matches("^-?[\\d.]+$" )) {
+            memory3.setText(memory3.getText() + "-" + outputField.getText());
+            Solver solver = new Solver(memory3.getText());
+            memory3.setText(solver.getAnswer());
+        }
     }
 
     @FXML
     void memory3read () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        outputField.setText(memory3.getText());
     }
 
     @FXML
     void memory3clear () {
         reset();
-        inputField.setText( inputField.getText() + "×");
+        memory3.setText("0");
     }
 
     private void reset(){
         if(isDisplayingAns){
-            inputField.clear();
+            outputField.clear();
             equalLabel.setVisible(false);
             isDisplayingAns = false;
         }

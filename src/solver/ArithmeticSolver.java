@@ -1,4 +1,4 @@
-package solver.arithmetic;
+package solver;
 
 import exception.DivideByZeroException;
 import exception.MathException;
@@ -26,48 +26,12 @@ public class ArithmeticSolver {
 
     private void solve() throws MathException{
         System.out.println("at the beginning "+ equation);
-        simplifyPlusAndMinusSign();
-        simplifyPercentageSign();
+    //    simplifyPlusAndMinusSign();
 
         extractEquationToNumbersAndOperators();
         System.out.println("numbers: " + numbers.toString());
         System.out.println("operator: " + operators.toString());
         calculate();
-    }
-
-    private void simplifyPlusAndMinusSign(){
-        for (int i = 0; i < equation.length() - 1; i++) {
-            char firstChar = equation.charAt(i);
-            char secondChar = equation.charAt(i + 1);
-
-            if (Operator.isCalculationOperator(firstChar) && Operator.isCalculationOperator(secondChar)) {
-                String str = new String(new char[]{firstChar, secondChar});
-                // 0, 1, 2, i-1, i, i+1, i+2, ....
-                String former = equation.substring(0, i);   // [0, i)
-                String latter = equation.substring(i + 2);  // [i+2, end]
-
-                if (str.equals("+-") || str.equals("-+")) {
-                    equation = former + "-" + latter;
-                    i = -1;
-                } else if (str.equals("++") || str.equals("--")) {
-                    equation = former + "+" + latter;
-                    i = -1;
-                }
-            }
-        }
-    }
-
-    /**
-     * convert % to ÷100
-     */
-    private void simplifyPercentageSign() {
-        for (int i = 0; i < equation.length(); i++) {
-            if(equation.charAt(i) == '%') {
-                String former = equation.substring(0, i);   // [0, i)
-                String latter = equation.substring(i + 1);  // [i+1, end]
-                equation = former + "÷100" + latter;
-            }
-        }
     }
 
     private void extractEquationToNumbersAndOperators() throws SyntaxErrorException {

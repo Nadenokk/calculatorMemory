@@ -15,11 +15,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/calculator.fxml"));
         Parent root = loader.load();
-        primaryStage.setTitle("Calculator");
+        primaryStage.setTitle("Calculator For Nadya");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         Controller controller = loader.getController();
-        TextField reader = controller.getInputField();
+        TextField reader = controller.getOutputField();
 
         reader.textProperty().addListener((observable, oldValue, newValue) -> {
             int location = reader.getText().length();
