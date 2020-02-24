@@ -35,7 +35,7 @@ public class ArithmeticSolver {
     }
 
     private void extractEquationToNumbersAndOperators() throws SyntaxErrorException {
-        System.out.println("extracting "+ equation);
+        System.out.println("execute "+ equation);
 
         boolean isNegative = false;// отрицательность числа
         Integer numStartIndex = null;// начало цифры

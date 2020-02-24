@@ -6,8 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="calc 2.2">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="calc 2.2 style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculator.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solver/ArithmeticSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver/ArithmeticSolver.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -331,7 +334,7 @@
       <workItem from="1582229341998" duration="4140000" />
       <workItem from="1582311375372" duration="2233000" />
       <workItem from="1582453127743" duration="21958000" />
-      <workItem from="1582542679644" duration="12039000" />
+      <workItem from="1582542679644" duration="14330000" />
     </task>
     <task id="LOCAL-00001" summary="add button memory">
       <created>1582233198028</created>
@@ -382,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582556432580</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="calc 2.2 style">
+      <created>1582559684388</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582559684388</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,6 +421,7 @@
     <MESSAGE value="calc 2.0" />
     <MESSAGE value="calc 2.1" />
     <MESSAGE value="calc 2.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="calc 2.2" />
+    <MESSAGE value="calc 2.2 style" />
+    <option name="LAST_COMMIT_MESSAGE" value="calc 2.2 style" />
   </component>
 </project>
