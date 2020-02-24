@@ -30,6 +30,7 @@ public class Controller {
 
     private boolean isDisplayingAns = false;
     private boolean isEqualLabel = false;
+    private boolean isError= false;
 
     TextField getOutputField() {
         return outputField;
@@ -184,7 +185,9 @@ public class Controller {
     void equal() {
         inputField.setText(inputField.getText() +outputField.getText());
         Solver solver = new Solver(inputField.getText());
-        outputField.setText(solver.getAnswer());
+        String s = solver.getAnswer();
+        outputField.setText(s);
+
         inputField.clear();
         if (!isEqualLabel) {
             isDisplayingAns = false;
@@ -192,6 +195,9 @@ public class Controller {
             isDisplayingAns = true;
         }
         isEqualLabel=false;
+        if (s.contains("Error")){
+            isError = true;
+        }
     }
 
     @FXML
@@ -300,6 +306,10 @@ public class Controller {
         if(isDisplayingAns){
             outputField.clear();
             isDisplayingAns = false;
+        }
+        if (isError){
+            inputField.clear();
+            isError=false;
         }
     }
 
