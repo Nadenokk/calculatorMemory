@@ -14,11 +14,11 @@ public class Solver {
     }
 
     private void solve(){
+        // проверяет ввод
         if(equation.equals("")){
             answer = "";
             return;
         }
-        addingTimesSign();
         try {
             calculate();
         } catch (MathException e) {
@@ -26,21 +26,14 @@ public class Solver {
         }
     }
 
-    /**
-     * 
-     */
-    private void addingTimesSign(){
-        for (int i = 1; i < equation.length(); i++) {
-            char oneChar = equation.charAt(i);
-        }
-    }
-
     private void calculate() throws MathException{
+        // считает
         ArithmeticSolver solver = new ArithmeticSolver(equation);
         answer = solver.getAnswer();
     }
 
     public String getAnswer(){
+        // проверяет ответ
         if(exception == null){
             return answer;
         }

@@ -1,6 +1,6 @@
 package exception;
 /*
-    *Синтаксическая ошибка
+ * Синтаксическая ошибка
  */
 public class SyntaxErrorException extends MathException {
     @Override

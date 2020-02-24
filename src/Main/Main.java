@@ -18,9 +18,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/calculator.fxml"));
         Parent root = loader.load();
-        primaryStage.setTitle("Я калькулятор, я не люблю когда меня ломают");
+        primaryStage.setTitle("Я - калькулятор и я не люблю, когда меня ломают");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
         Controller controller = loader.getController();
         TextField reader = controller.getOutputField();
 

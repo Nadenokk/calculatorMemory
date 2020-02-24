@@ -1,6 +1,6 @@
 package exception;
 /*
-    * Математическая ошибка
+ * Математическая ошибка
  */
 public class DivideByZeroException extends MathException{
     @Override
