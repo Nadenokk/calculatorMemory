@@ -6,14 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="calc 2.0">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/calculator/Main/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/Main/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/calculator/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/calculator/Main/resources/calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/Main/resources/calculator.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/calculator/exception/MathException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/exception/MathException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/calculator/solver/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/solver/Solver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Controller.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="calc 2.1">
       <change beforePath="$PROJECT_DIR$/src/Main/resources/calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/resources/calculator.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -338,7 +331,7 @@
       <workItem from="1582229341998" duration="4140000" />
       <workItem from="1582311375372" duration="2233000" />
       <workItem from="1582453127743" duration="21958000" />
-      <workItem from="1582542679644" duration="9042000" />
+      <workItem from="1582542679644" duration="9292000" />
     </task>
     <task id="LOCAL-00001" summary="add button memory">
       <created>1582233198028</created>
@@ -375,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582554415934</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="calc 2.1">
+      <created>1582556296329</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1582556296329</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,6 +402,7 @@
     <MESSAGE value="calc 1.0" />
     <MESSAGE value="calc 1.1" />
     <MESSAGE value="calc 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="calc 2.0" />
+    <MESSAGE value="calc 2.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="calc 2.1" />
   </component>
 </project>

@@ -26,12 +26,12 @@
       <Button layoutX="157.0" layoutY="459.0" mnemonicParsing="false" onAction="#clear" prefHeight="51.0" prefWidth="53.0" text="AC" />
       <TextField fx:id="inputField" disable="true" editable="false" layoutX="20.0" layoutY="34.0" prefHeight="32.0" prefWidth="391.0" style="-fx-background-color: rgb(250,250,250); -fx-background-radius: 0;">
          <font>
-            <Font size="30.0" />
+            <Font name="Century Gothic" size="30.0" />
          </font>
       </TextField>
       <TextField fx:id="outputField" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="20.0" layoutY="94.0" prefHeight="58.0" prefWidth="391.0" style="-fx-background-color: rgb(250,250,250); -fx-background-radius: 0;">
          <font>
-            <Font size="24.0" />
+            <Font name="Century Gothic" size="30.0" />
          </font>
       </TextField>
       <Label fx:id="equalLabel" alignment="CENTER" layoutX="21.0" layoutY="96.0" prefHeight="29.0" prefWidth="43.0" text="=" visible="false">
