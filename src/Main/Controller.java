@@ -29,7 +29,7 @@ public class Controller {
 
 
     private boolean isDisplayingAns = false;
-    private boolean isEqualLabel = false;
+    private boolean isEqualLabel = true;
     private boolean isError= false;
 
     TextField getOutputField() {
@@ -42,10 +42,7 @@ public class Controller {
     * Операции с 3 перменными из памяти
      */
     @FXML
-    void pressing1Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "1");
-    }
+    void pressing1Btn() { presKey('1'); }
 
     @FXML
     void pressing2Btn() {
@@ -97,8 +94,7 @@ public class Controller {
 
     @FXML
     void pressing0Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "0");
+        presKey('0');
     }
 
     @FXML
@@ -119,18 +115,9 @@ public class Controller {
 
     @FXML
     void add() {
-        if (!isEqualLabel) {
-            reset();
-            inputField.setText(outputField.getText() + "+");
-            outputField.clear();
-            isEqualLabel=true;
-        } else {
-            reset();
-            equal();
-            inputField.setText(outputField.getText() + "+");
-            outputField.clear();
-            isEqualLabel=true;
-        }
+        equal();
+        inputField.setText(outputField.getText() + "+");
+        outputField.setText("0");
     }
 
     @FXML
@@ -183,18 +170,19 @@ public class Controller {
 
     @FXML
     void equal() {
-        inputField.setText(inputField.getText() +outputField.getText());
-        Solver solver = new Solver(inputField.getText());
+        String q = (inputField.getText() +outputField.getText());
+        Solver solver = new Solver(q);
         String s = solver.getAnswer();
         outputField.setText(s);
+        inputField.setText("0");
 
-        inputField.clear();
+
         if (!isEqualLabel) {
             isDisplayingAns = false;
         } else {
             isDisplayingAns = true;
         }
-        isEqualLabel=false;
+        isEqualLabel=true;
         if (s.contains("Error")){
             isError = true;
         }
@@ -202,17 +190,19 @@ public class Controller {
 
     @FXML
     void clear() {
-        outputField.clear();
-        inputField.clear();
+        outputField.setText("0");
+        inputField.setText("0");
     }
 
     @FXML
     void memory1plus () {
         String s = outputField.getText();
         if (s.length() >0 && s.matches("^-?[\\d.]+$" ) ) {
-            memory1.setText(memory1.getText() + "+" + s);
-            Solver solver = new Solver(memory1.getText());
-            memory1.setText(solver.getAnswer());
+            String q = memory1.getText() + "+" + s;
+            Solver solver = new Solver(q);
+            String r = solver.getAnswer();
+            if (!r.contains("Error"))  memory1.setText(r);
+            else outputField.setText(r);
             isDisplayingAns = true;
         }
     }
@@ -231,6 +221,7 @@ public class Controller {
     @FXML
     void memory1read () {
         outputField.setText(memory1.getText());
+        isDisplayingAns = false;
     }
 
     @FXML
@@ -304,13 +295,20 @@ public class Controller {
 
     private void reset(){
         if(isDisplayingAns){
-            outputField.clear();
+            outputField.setText("0");
             isDisplayingAns = false;
         }
         if (isError){
-            inputField.clear();
+            inputField.setText("0");
             isError=false;
         }
+    }
+
+    private void presKey (final char c){
+        reset();
+        String s = outputField.getText();
+        if (s.equals("0")) outputField.setText("" + c);
+        else outputField.setText( s + c);
     }
 
 }
