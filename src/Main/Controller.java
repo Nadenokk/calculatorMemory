@@ -30,7 +30,8 @@ public class Controller {
 
     private boolean isDisplayingAns = false;
     private boolean isEqualLabel = true;
-    private boolean isError= false;
+    private boolean isError = false;
+    private boolean point = false;
 
     TextField getOutputField() {
         return outputField;
@@ -45,52 +46,28 @@ public class Controller {
     void pressing1Btn() { presKey('1'); }
 
     @FXML
-    void pressing2Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "2");
-    }
+    void pressing2Btn() { presKey('2'); }
 
     @FXML
-    void pressing3Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "3");
-    }
+    void pressing3Btn() { presKey('3');}
 
     @FXML
-    void pressing4Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "4");
-    }
+    void pressing4Btn() { presKey('4');}
 
     @FXML
-    void pressing5Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "5");
-    }
+    void pressing5Btn() { presKey('5');}
 
     @FXML
-    void pressing6Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "6");
-    }
+    void pressing6Btn() { presKey('6');}
 
     @FXML
-    void pressing7Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "7");
-    }
+    void pressing7Btn() { presKey('7');}
 
     @FXML
-    void pressing8Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "8");
-    }
+    void pressing8Btn() { presKey('8');}
 
     @FXML
-    void pressing9Btn() {
-        reset();
-        outputField.setText( outputField.getText() + "9");
-    }
+    void pressing9Btn() { presKey('9');}
 
     @FXML
     void pressing0Btn() {
@@ -100,12 +77,15 @@ public class Controller {
     @FXML
     void dot() {
         reset();
-        outputField.setText( outputField.getText() + ".");
+        if (!point) {
+            outputField.setText(outputField.getText() + ".");
+            point = true;
+        }
     }
 
     @FXML
     void plusminus() {
-        reset();
+        //reset();
         if (outputField.getText(0,1).contains("-")){
             outputField.deleteText(0,1);
         } else {
@@ -118,54 +98,31 @@ public class Controller {
         equal();
         inputField.setText(outputField.getText() + "+");
         outputField.setText("0");
+        point = false;
     }
 
     @FXML
     void minus() {
-        if (!isEqualLabel) {
-            reset();
-            inputField.setText(outputField.getText() + "-");
-            outputField.clear();
-            isEqualLabel=true;
-        } else {
-            reset();
-            equal();
-            inputField.setText(outputField.getText() + "-");
-            outputField.clear();
-            isEqualLabel=true;
-        }
+        equal();
+        inputField.setText(outputField.getText() + "-");
+        outputField.setText("0");
+        point = false;
     }
 
     @FXML
     void divide() {
-        if (!isEqualLabel) {
-            reset();
-            inputField.setText(outputField.getText() + "÷");
-            outputField.clear();
-            isEqualLabel=true;
-        } else {
-            reset();
-            equal();
-            inputField.setText(outputField.getText() + "÷");
-            outputField.clear();
-            isEqualLabel=true;
-        }
+        equal();
+        inputField.setText(outputField.getText() + "÷");
+        outputField.setText("0");
+        point = false;
     }
 
     @FXML
     void times() {
-        if (!isEqualLabel) {
-            reset();
-            inputField.setText(outputField.getText() + "×");
-            outputField.clear();
-            isEqualLabel=true;
-        } else {
-            reset();
-            equal();
-            inputField.setText(outputField.getText() + "×");
-            outputField.clear();
-            isEqualLabel=true;
-        }
+        equal();
+        inputField.setText(outputField.getText() + "×");
+        outputField.setText("0");
+        point = false;
     }
 
     @FXML
@@ -174,6 +131,7 @@ public class Controller {
         Solver solver = new Solver(q);
         String s = solver.getAnswer();
         outputField.setText(s);
+        point = true;
         inputField.setText("0");
 
 
@@ -192,14 +150,14 @@ public class Controller {
     void clear() {
         outputField.setText("0");
         inputField.setText("0");
+        point = false;
     }
 
     @FXML
     void memory1plus () {
         String s = outputField.getText();
         if (s.length() >0 && s.matches("^-?[\\d.]+$" ) ) {
-            String q = memory1.getText() + "+" + s;
-            Solver solver = new Solver(q);
+            Solver solver = new Solver(memory1.getText() + "+" + s);
             String r = solver.getAnswer();
             if (!r.contains("Error"))  memory1.setText(r);
             else outputField.setText(r);
@@ -211,9 +169,10 @@ public class Controller {
     void memory1minus () {
         String s = outputField.getText();
         if (s.length() >0 && s.matches("^-?[\\d.]+$" )) {
-            memory1.setText(memory1.getText() + "-" + outputField.getText());
-            Solver solver = new Solver(memory1.getText());
-            memory1.setText(solver.getAnswer());
+            Solver solver = new Solver(memory1.getText() + "-" + s);
+            String r = solver.getAnswer();
+            if (!r.contains("Error"))  memory1.setText(r);
+            else outputField.setText(r);
             isDisplayingAns = true;
         }
     }
@@ -221,7 +180,8 @@ public class Controller {
     @FXML
     void memory1read () {
         outputField.setText(memory1.getText());
-        isDisplayingAns = false;
+        point = true;
+        isDisplayingAns = true;
     }
 
     @FXML
@@ -233,9 +193,10 @@ public class Controller {
     void memory2plus () {
         String s = outputField.getText();
         if (s.length() >0 && s.matches("^-?[\\d.]+$" ) ) {
-            memory2.setText(memory2.getText() + "+" + s);
-            Solver solver = new Solver(memory2.getText());
-            memory2.setText(solver.getAnswer());
+            Solver solver = new Solver(memory2.getText() + "+" + s);
+            String r = solver.getAnswer();
+            if (!r.contains("Error"))  memory2.setText(r);
+            else outputField.setText(r);
             isDisplayingAns = true;
         }
     }
@@ -244,9 +205,10 @@ public class Controller {
     void memory2minus () {
         String s = outputField.getText();
         if (s.length() >0 && s.matches("^-?[\\d.]+$" )) {
-            memory2.setText(memory2.getText() + "-" + outputField.getText());
-            Solver solver = new Solver(memory2.getText());
-            memory2.setText(solver.getAnswer());
+            Solver solver = new Solver(memory2.getText() + "-" + s);
+            String r = solver.getAnswer();
+            if (!r.contains("Error"))  memory2.setText(r);
+            else outputField.setText(r);
             isDisplayingAns = true;
         }
     }
@@ -254,6 +216,8 @@ public class Controller {
     @FXML
     void memory2read () {
         outputField.setText(memory2.getText());
+        point = true;
+        isDisplayingAns = true;
     }
 
     @FXML
@@ -265,9 +229,10 @@ public class Controller {
     void memory3plus () {
         String s = outputField.getText();
         if (s.length() >0 && s.matches("^-?[\\d.]+$" ) ) {
-            memory3.setText(memory3.getText() + "+" + s);
-            Solver solver = new Solver(memory3.getText());
-            memory3.setText(solver.getAnswer());
+            Solver solver = new Solver(memory3.getText() + "+" + s);
+            String r = solver.getAnswer();
+            if (!r.contains("Error"))  memory3.setText(r);
+            else outputField.setText(r);
             isDisplayingAns = true;
         }
     }
@@ -276,9 +241,10 @@ public class Controller {
     void memory3minus () {
         String s = outputField.getText();
         if (s.length() >0 && s.matches("^-?[\\d.]+$" )) {
-            memory3.setText(memory3.getText() + "-" + outputField.getText());
-            Solver solver = new Solver(memory3.getText());
-            memory3.setText(solver.getAnswer());
+            Solver solver = new Solver(memory3.getText() + "-" + s);
+            String r = solver.getAnswer();
+            if (!r.contains("Error"))  memory3.setText(r);
+            else outputField.setText(r);
             isDisplayingAns = true;
         }
     }
@@ -286,6 +252,8 @@ public class Controller {
     @FXML
     void memory3read () {
         outputField.setText(memory3.getText());
+        point = true;
+        isDisplayingAns = true;
     }
 
     @FXML
@@ -296,6 +264,7 @@ public class Controller {
     private void reset(){
         if(isDisplayingAns){
             outputField.setText("0");
+            point = false;
             isDisplayingAns = false;
         }
         if (isError){
@@ -308,6 +277,7 @@ public class Controller {
         reset();
         String s = outputField.getText();
         if (s.equals("0")) outputField.setText("" + c);
+        else if (s.equals("-0")) outputField.setText("-" + c);
         else outputField.setText( s + c);
     }
 
